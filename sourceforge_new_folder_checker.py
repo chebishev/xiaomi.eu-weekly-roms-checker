@@ -13,6 +13,7 @@ driver.get(target_url)
 
 # wait x seconds before searching for the consent button
 time.sleep(3)
+
 # locate and click the "do not accept" button
 consent_button = driver.find_element_by_xpath('//*[@id="cmpwelcomebtnno"]/a')
 consent_button.click()
