@@ -1,8 +1,15 @@
 from selenium import webdriver
+from datetime import datetime, timedelta
 import time
 
+
+def get_difference(today_date, found_date):
+    delta = today_date - found_date
+    return delta.days
+
+
 # set location of our edge driver
-edge_driver_path = "edgedriver_win64/msedgedriver.exe"
+edge_driver_path = "msedgedriver.exe"
 driver = webdriver.Edge(edge_driver_path)
 
 # set the url that we will check for new folders
@@ -17,3 +24,25 @@ time.sleep(3)
 # locate and click the "do not accept" button
 consent_button = driver.find_element_by_xpath('//*[@id="cmpwelcomebtnno"]/a')
 consent_button.click()
+
+# getting all the info from the table
+table = driver.find_elements_by_xpath('//*[@id="files_list"]')
+
+# getting current date in order to compare with the last founded date
+
+full_info = ""
+for items in table:
+    full_info = items.text
+
+# splitting the string into list, because the 6th element contains the last folder name and last date of modification
+full_info = full_info.split("\n")
+current_name, found_date = full_info[5].split()
+
+found_year, found_month, found_day = [int(x) for x in found_date.split("-")]
+days_difference = datetime.now() - datetime(found_year, found_month, found_day)
+
+if days_difference.days < 4:
+    print(f"Modified folder found!\nName: {current_name}\nDate: {found_day}.{found_month}.{found_year}")
+    print(f'Download link: {target_url+current_name}')
+else:
+    print(f"Everything is the same as in {found_date}\nLast created folder is {current_name}\nBetter luck next time!")
