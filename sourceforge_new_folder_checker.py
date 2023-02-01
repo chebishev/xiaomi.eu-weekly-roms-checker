@@ -1,14 +1,9 @@
 from selenium import webdriver
-from datetime import datetime, timedelta
+from datetime import datetime
 import time
 
-
-def get_difference(today_date, found_date):
-    delta = today_date - found_date
-    return delta.days
-
-
-# set location of our edge driver
+# set location of our edge driver (you can get it from here:
+# https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/
 edge_driver_path = "msedgedriver.exe"
 driver = webdriver.Edge(edge_driver_path)
 
@@ -28,17 +23,20 @@ consent_button.click()
 # getting all the info from the table
 table = driver.find_elements_by_xpath('//*[@id="files_list"]')
 
-# getting current date in order to compare with the last founded date
-
 full_info = ""
 for items in table:
     full_info = items.text
 
-# splitting the string into list, because the 6th element contains the last folder name and last date of modification
+# splitting the string into list, because the 6th element (index 5)
+# #contains the last folder name and last date of modification
 full_info = full_info.split("\n")
 current_name, found_date = full_info[5].split()
 
+# extracting year, month, day from found_date string
 found_year, found_month, found_day = [int(x) for x in found_date.split("-")]
+
+# getting the difference in days
+# (it gaves something like "2 days, 14:05:28.657927", which is translated to number with ".days" in the "if" statement)
 days_difference = datetime.now() - datetime(found_year, found_month, found_day)
 
 if days_difference.days < 4:
