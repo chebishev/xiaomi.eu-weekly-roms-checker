@@ -10,7 +10,19 @@ options.add_argument("disable-gpu")
 options.add_argument('--allow-running-insecure-content')
 options.add_argument('--ignore-certificate-errors')
 
-driver = webdriver.Chrome(executable_path='msedgedriver.exe', options=options)
+
+driver_choose = ''
+while driver_choose != "32" and driver_choose != "64":
+    driver_choose = input("Please input 32 or 64 for web driver architecture: ")
+    if driver_choose == "32":
+        driver_path = "msedgedriver32.exe"
+        break
+    elif driver_choose == "64":
+        driver_path = "msedgedriver64.exe"
+    else:
+        print("Invalid input!")
+
+driver = webdriver.Chrome(executable_path=driver_path, options=options)
 
 # set the url that we will check for new folders
 target_url = "https://sourceforge.net/projects/xiaomi-eu-multilang-miui-roms/files/xiaomi.eu/MIUI-WEEKLY-RELEASES/"
@@ -36,7 +48,7 @@ def check_date(folder_date_list, new_folder_checker):
     folder_name, date = folder_date_list
 
     # extracting year, month, day from found_date string
-    found_year, found_month, found_day = [int(x) for x in found_date.split("-")]
+    found_year, found_month, found_day = [int(x) for x in date.split("-")]
 
     # getting the difference in days (it gaves something like "2 days, 14:05:28.657927", which is translated to
     # number with ".days" in the "if" statement)
@@ -58,6 +70,5 @@ else:
 if new_folder_found:
     print(f"Modified folder found!\nName: {current_name}\nDate: {found_date}")
     print(f'Download link: {target_url + current_name}')
-
 else:
     print(f"Everything is the same as in {found_date}\nLast created folder is {current_name}\nBetter luck next time!")
