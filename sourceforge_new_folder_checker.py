@@ -36,7 +36,7 @@ def check_date(folder_date_list, new_folder_checker):
     folder_name, date = folder_date_list
 
     # extracting year, month, day from found_date string
-    found_year, found_month, found_day = [int(x) for x in found_date.split("-")]
+    found_year, found_month, found_day = [int(x) for x in date.split("-")]
 
     # getting the difference in days (it gaves something like "2 days, 14:05:28.657927", which is translated to
     # number with ".days" in the "if" statement)
