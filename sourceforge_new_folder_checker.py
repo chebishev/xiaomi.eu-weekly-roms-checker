@@ -1,6 +1,7 @@
 from selenium import webdriver
 from msedge.selenium_tools import EdgeOptions
 from datetime import datetime
+import platform
 
 # options - in order to make headless search with Edge
 options = EdgeOptions()
@@ -10,19 +11,13 @@ options.add_argument("disable-gpu")
 options.add_argument('--allow-running-insecure-content')
 options.add_argument('--ignore-certificate-errors')
 
+# it helps to choose the right architecture in order to get the driver correctly
+architecture_dict = {
+    "x86": "msedgedriver32.exe", 
+    "x64": "msedgedriver64.exe"
+}
 
-driver_choose = ''
-while driver_choose != "32" and driver_choose != "64":
-    driver_choose = input("Please input 32 or 64 for web driver architecture: ")
-    if driver_choose == "32":
-        driver_path = "msedgedriver32.exe"
-        break
-    elif driver_choose == "64":
-        driver_path = "msedgedriver64.exe"
-    else:
-        print("Invalid input!")
-
-driver = webdriver.Chrome(executable_path=driver_path, options=options)
+driver = webdriver.Chrome(executable_path=architecture_dict[platform.machine()], options=options)
 
 # set the url that we will check for new folders
 target_url = "https://sourceforge.net/projects/xiaomi-eu-multilang-miui-roms/files/xiaomi.eu/MIUI-WEEKLY-RELEASES/"
