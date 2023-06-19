@@ -13,6 +13,7 @@ def telegram_message():
     options.add_argument('--allow-running-insecure-content')
     options.add_argument('--ignore-certificate-errors')
 
+    # Edge web drivers can be found on https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/
     # it helps to choose the right architecture in order to get the driver correctly
     driver_path = "msedgedriver64.exe" if platform.machine().endswith("64") else "msedgedriver32.exe"
 
