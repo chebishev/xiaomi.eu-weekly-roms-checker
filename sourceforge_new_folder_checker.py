@@ -3,44 +3,7 @@ import requests
 from bs4 import BeautifulSoup
 
 
-# from selenium import webdriver
-# from selenium.webdriver.edge.options import Options
-# from selenium.webdriver.edge.service import Service as EdgeService
-# from webdriver_manager.microsoft import EdgeChromiumDriverManager
-#
-#
-# def get_driver():
-#     # options - in order to make headless search with Edge
-#     options = Options()
-#     options.use_chromium = True
-#     options.add_argument("--headless")
-#     options.add_argument("--disable-gpu")
-#     options.add_argument('--allow-running-insecure-content')
-#     options.add_argument('--ignore-certificate-errors')
-#     options.add_argument('--log-level=3')  # remove errors about "Error with Feature-Policy header
-#
-#     # get and install the newest, needed driver in .root/.wdm
-#     service = EdgeService(EdgeChromiumDriverManager().install())
-#
-#     return webdriver.Edge(service=service, options=options)
-
-
 def telegram_message():
-    # driver = get_driver()
-    #
-    # # set the url that we will check for new folders target_url =
-    # "https://sourceforge.net/projects/xiaomi-eu-multilang-miui-roms/files/xiaomi.eu/MIUI-WEEKLY-RELEASES/"
-    #
-    # # opens the web page
-    # driver.get(target_url)
-
-    # getting the info from the first row in the table. Index 0 is table head, index 1 is folder, date, etc.
-    # table = driver.find_element("xpath", '//*[@id="files_list"]/tbody/tr[1]')
-
-    # table.text returns string separated by new lines
-    # splitting the string into list, because the 1st element (index 0)
-    # #contains the last folder name and last date of modification
-    # full_info = table.text.split("\n")[0]
 
     # url needed for beautiful soup to do its magic:
     url = "https://sourceforge.net/projects/xiaomi-eu-multilang-miui-roms/files/xiaomi.eu/MIUI-WEEKLY-RELEASES/"
@@ -74,7 +37,7 @@ def telegram_message():
         # extracting year, month, day from found_date string
         found_year, found_month, found_day = [int(x) for x in date.split("-")]
 
-        # getting the difference in days (it gaves something like "2 days, 14:05:28.657927", which is translated to
+        # getting the difference in days (it gave something like "2 days, 14:05:28.657927", which is translated to
         # number with ".days" in the "if" statement)
         days_difference = datetime.now() - datetime(found_year, found_month, found_day)
         if days_difference.days < 4:
@@ -100,4 +63,4 @@ def telegram_message():
 
 
 # if you just want to view the message without sending it to Telegram, just print the function:
-print(telegram_message())
+# print(telegram_message())
