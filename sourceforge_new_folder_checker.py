@@ -1,23 +1,29 @@
-from selenium import webdriver
-from msedge.selenium_tools import EdgeOptions
 from datetime import datetime
-import platform
+
+from selenium import webdriver
+from selenium.webdriver.edge.options import Options
+from selenium.webdriver.edge.service import Service as EdgeService
+from webdriver_manager.microsoft import EdgeChromiumDriverManager
+
+
+def get_driver():
+    # options - in order to make headless search with Edge
+    options = Options()
+    options.use_chromium = True
+    options.add_argument("--headless")
+    options.add_argument("--disable-gpu")
+    options.add_argument('--allow-running-insecure-content')
+    options.add_argument('--ignore-certificate-errors')
+    options.add_argument('--log-level=3')  # remove errors about "Error with Feature-Policy header
+
+    # get and install the newest, needed driver in .root/.wdm
+    service = EdgeService(EdgeChromiumDriverManager().install())
+
+    return webdriver.Edge(service=service, options=options)
 
 
 def telegram_message():
-    # options - in order to make headless search with Edge
-    options = EdgeOptions()
-    options.use_chromium = True
-    options.add_argument("--headless")
-    options.add_argument("disable-gpu")
-    options.add_argument('--allow-running-insecure-content')
-    options.add_argument('--ignore-certificate-errors')
-
-    # Edge web drivers can be found on https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/
-    # it helps to choose the right architecture in order to get the driver correctly
-    driver_path = "msedgedriver64.exe" if platform.machine().endswith("64") else "msedgedriver32.exe"
-
-    driver = webdriver.Chrome(executable_path=driver_path, options=options)
+    driver = get_driver()
 
     # set the url that we will check for new folders
     target_url = "https://sourceforge.net/projects/xiaomi-eu-multilang-miui-roms/files/xiaomi.eu/MIUI-WEEKLY-RELEASES/"
@@ -70,4 +76,4 @@ def telegram_message():
 
 
 # if you just want to view the message without sending it to Telegram, just print the function:
-# print(telegram_message())
+print(telegram_message())
