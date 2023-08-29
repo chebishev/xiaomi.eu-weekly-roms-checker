@@ -10,4 +10,9 @@ def telegram_message():
             output.append(link['href'])
         if "androidfilehost.com" in link.text:
             output.append(link['href'])
+    changelog = soup.find_all('div', class_="bbWrapper")
+    for c in changelog:
+        current_result = c.text.split(".")
+        if current_result[0].startswith("CHANGELOG"):
+            output.append(current_result[0])
     return output
