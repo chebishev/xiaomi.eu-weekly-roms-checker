@@ -1,15 +1,19 @@
-import sourceforge_new_folder_checker
-from telethon.tl.types import InputPeerUser, InputPeerChannel
-from telethon import TelegramClient, sync, events
+import os
+from dotenv import load_dotenv
+from telethon.tl.types import InputPeerUser
+from telethon import TelegramClient
+import xiaomi_eu_new_thread_checker
+
+load_dotenv()
 
 # get your api_id, api_hash, token from telegram
-api_id = int(input("Enter your api_id: "))
-api_hash = input("Enter your api_hash: ")
-token = input("Enter your token: ")
-message = sourceforge_new_folder_checker.telegram_message()
+api_id = int(os.getenv('API_ID'))
+api_hash = os.getenv('API_HASH')
+token = os.getenv('TOKEN')
+message = xiaomi_eu_new_thread_checker.telegram_message()
 
 # your phone number
-phone = input("Enter your phone number: ")
+phone = os.getenv('PHONE_NUMBER')
 
 # creating a telegram session and assigning
 # it to a variable client
@@ -26,19 +30,19 @@ if not client.is_user_authorized():
 
     # signing in the client
     client.sign_in(phone, input('Enter the code: '))
+for m in message:
+    try:
+        # receiver user_id and access_hash, use
+        # my user_id and access_hash for reference
+        receiver = InputPeerUser(int(os.getenv('USER_ID')), 0)
 
-try:
-    # receiver user_id and access_hash, use
-    # my user_id and access_hash for reference
-    receiver = InputPeerUser(int(input("Enter your user_id: ")), int(input("Enter your access_hash or just 0: ")))
+        # sending message using telegram client
+        client.send_message(entity=os.getenv('CHANNEL_NAME'), message=m)
+    except Exception as e:
 
-    # sending message using telegram client
-    client.send_message(receiver, message, parse_mode='html')
-except Exception as e:
-
-    # there may be many error coming in while like peer
-    # error, wrong access_hash, flood_error, etc
-    print(e)
+        # there may be many error coming in while like peer
+        # error, wrong access_hash, flood_error, etc
+        print(e)
 
 # disconnecting the telegram session
 client.disconnect()
