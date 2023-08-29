@@ -16,3 +16,7 @@ def telegram_message():
         if current_result[0].startswith("CHANGELOG"):
             output.append(current_result[0])
     return output
+
+
+# or print the result directly in the console:
+# print(*telegram_message(), sep="\n")
