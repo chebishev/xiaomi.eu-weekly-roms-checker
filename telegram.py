@@ -1,7 +1,7 @@
 import os
 from dotenv import load_dotenv
 from telethon.tl.types import InputPeerUser
-from telethon import TelegramClient
+from telethon import TelegramClient, sync, events
 import xiaomi_eu_new_thread_checker
 
 load_dotenv()
