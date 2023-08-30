@@ -1,4 +1,4 @@
 beautifulsoup4==4.12.2
 requests==2.31.0
-Telethon==1.29.3
+python-telegram-bot==20.4
 python-dotenv~=1.0.0
