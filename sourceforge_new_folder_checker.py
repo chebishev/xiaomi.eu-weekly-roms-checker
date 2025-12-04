@@ -2,7 +2,8 @@ from datetime import datetime
 from scraper import scrape_config_by_url
 
 # BeautifulSoup instance that gets url and parser as arguments
-url = "https://sourceforge.net/projects/xiaomi-eu-multilang-miui-roms/files/xiaomi.eu/MIUI-WEEKLY-RELEASES/"
+# url = "https://sourceforge.net/projects/xiaomi-eu-multilang-miui-roms/files/xiaomi.eu/MIUI-WEEKLY-RELEASES/"
+url = "https://sourceforge.net/projects/xiaomi-eu-multilang-miui-roms/files/xiaomi.eu/HyperOS-STABLE-RELEASES/"
 soup = scrape_config_by_url(url)
 
 # getting the info directly from the html by id of the table
@@ -42,7 +43,7 @@ def check_date(folder_found, date_found, new_folder_checker):
 
 
 # checking if the folder is newly created ( last 24 hours )
-if " < " in full_info:
+if "<" in full_info:
     current_name, found_date = full_info[0], full_info[1]
     new_folder_found = True
 else:
@@ -56,4 +57,4 @@ else:
              f"Last created folder is {current_name}\nBetter luck next time!"
 
 # or print the result directly in the console:
-# print(output)
+print(output)

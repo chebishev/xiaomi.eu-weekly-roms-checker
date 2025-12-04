@@ -12,7 +12,7 @@ def fix_title(string):
 
 
 def telegram_message():
-    soup = scrape_config_by_url("https://xiaomi.eu/community/link-forums/roms-download.73/")
+    soup = scrape_config_by_url("https://xiaomi.eu/community/threads/hyperos-3-0-stable-release.76151/")
     output = [soup.find('h1').text]
     all_links = soup.find_all("a", href=True, class_="link link--external")
     for link in all_links:
@@ -28,4 +28,4 @@ def telegram_message():
     return output
 
 # or print the result directly in the console:
-# print(*telegram_message(), sep="\n")
+print(*telegram_message(), sep="\n")
