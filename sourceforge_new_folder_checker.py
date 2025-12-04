@@ -44,7 +44,7 @@ def check_date(folder_found, date_found, new_folder_checker):
 
 # checking if the folder is newly created ( last 24 hours )
 if "<" in full_info:
-    current_name, found_date = full_info[0], full_info[1]
+    current_name, found_date = full_info[0], " ".join(full_info[1:5])
     new_folder_found = True
 else:
     current_name, found_date, new_folder_found = check_date(full_info[0], full_info[1], new_folder_found)
