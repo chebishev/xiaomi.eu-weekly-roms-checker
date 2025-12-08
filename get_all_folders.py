@@ -1,20 +1,51 @@
-from scraper import scrape_config_by_url
+from scraper import scrape_config_by_url as scrape
+from urllib.parse import urljoin
+
+def get_subfolders(url):
+    """
+    Returns list of (folder_name, folder_url) tuples.
+    Skips "Parent folder".
+    """
+    soup = scrape(url)
+
+    rows = soup.find_all("tr", class_="folder")
+
+    subfolders = []
+
+    for row in rows:
+        a = row.find("a", href=True)
+        if not a:
+            continue
+
+        name = a.text.strip()
+
+        # skip the "Parent folder" row
+        if name.lower().startswith("parent"):
+            continue
+
+        folder_url = urljoin("https://sourceforge.net", a["href"])
+        subfolders.append((name, folder_url))
+
+    return subfolders
 
 
-rom_folders = {}
-def get_all_folders(url):
-    # go to main folder and create soup
-    soup = scrape_config_by_url(url)
-    # get all subfolders
-    element_list = soup.find_all('tr', class_='folder')
-    # iterate through subfolders to get their subfolders
-    for element in element_list[1:]:
-        current_folder = element.find('a')
-        current_soup = scrape_config_by_url("https://sourceforge.net" + current_folder['href'])
-        current_element_list = current_soup.find_all('tr', class_='folder')
-        for current_element in current_element_list[1:]:
-            folder = current_element.find('a')
-            rom_folders[folder.text.strip()] = "https://sourceforge.net" + folder['href']
-    return rom_folders
+def crawl_all(url, result=None):
+    """
+    Recursively crawl all nested folders and return dict:
+    { folder_name: folder_url }
+    """
+    if result is None:
+        result = {}
 
-print(get_all_folders("https://sourceforge.net/projects/xiaomi-eu-multilang-miui-roms/files/xiaomi.eu/").keys())
+    for name, suburl in get_subfolders(url):
+
+        # Store this folder
+        result[name] = suburl
+
+        # Recurse into subfolder
+        crawl_all(suburl, result)
+
+    return result
+
+root_url = "https://sourceforge.net/projects/xiaomi-eu-multilang-miui-roms/files/xiaomi.eu/"
+print(crawl_all(root_url))

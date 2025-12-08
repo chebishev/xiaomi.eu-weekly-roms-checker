@@ -5,7 +5,7 @@ from urllib.parse import urljoin
 session = requests.Session()
 cache = {}
 
-def scrape(url):
+def scrape_config_by_url(url):
     if url in cache:
         return cache[url]
 
