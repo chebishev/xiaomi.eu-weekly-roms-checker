@@ -1,10 +1,17 @@
 from bs4 import BeautifulSoup
 import requests
+from urllib.parse import urljoin
 
+session = requests.Session()
+cache = {}
 
-def scrape_config_by_url(url):
-    page = requests.get(url)
+def scrape(url):
+    if url in cache:
+        return cache[url]
 
-    # BeautifulSoup instance that gets url and parser as arguments
-    soup = BeautifulSoup(page.content, "html.parser")
+    r = session.get(url, timeout=10)
+    r.raise_for_status()
+    soup = BeautifulSoup(r.content, "html.parser")
+
+    cache[url] = soup
     return soup
