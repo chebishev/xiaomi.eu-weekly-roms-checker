@@ -28,4 +28,4 @@ def telegram_message():
     return output
 
 # or print the result directly in the console:
-print(*telegram_message(), sep="\n")
+# print(*telegram_message(), sep="\n")

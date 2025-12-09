@@ -57,4 +57,4 @@ else:
              f"Last created folder is {current_name}\nBetter luck next time!"
 
 # or print the result directly in the console:
-print(output)
+# print(output)

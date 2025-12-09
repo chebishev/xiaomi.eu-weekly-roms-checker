@@ -40,9 +40,13 @@ The tool now includes:
 ## 📁 Files
 
 - `sourceforge_new_folder_checker.py`  
-  Finds the newest available ROM folder from the xiaomi.eu SourceForge tree.
+  Finds the newest available ROM folder (or last modified) from the xiaomi.eu SourceForge tree.
 
-- `device_folder_crawler.py` *(new)*  
+- `xiaomi_eu_new_thread_checker.py`  
+  Checks the last stable thread from the xiaomi.eu forum and prepares telegram message with the title, downloads link and changelog.
+  Now, because of the deprecation of weekly roms this function is no longer usable.
+
+- `get_all_folders.py` *(new)*  
   Recursively scans all device folders and builds a full ROM index.
 
 - `telegram_sender.py` *(optional)*  
