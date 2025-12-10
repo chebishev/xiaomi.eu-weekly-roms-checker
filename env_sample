@@ -1,3 +1,6 @@
 # You must pass the token you received from https://t.me/Botfather
 TOKEN="Your_telegram_bot_token"
 CHANNEL_NAME="Your_telegram_channel_name"
+
+# for openai api
+OPENAI_API_KEY="Your_openai_api_key"
