@@ -9,9 +9,9 @@ IMAGE_URLS = {
     # "MIUI 12": "https://provider.xiaomi.eu/img/devices_stable_v12_21121101.png",
     # "MIUI 13": "https://provider.xiaomi.eu/img/devices_stable_v13_23040300.png",
     # "MIUI 14": "https://provider.xiaomi.eu/img/devices_stable_v14_24011214.png",
-    "HyperOS 1.0": "https://provider.xiaomi.eu/img/devices_stable_os1_24122514.png",
+    # "HyperOS 1.0": "https://provider.xiaomi.eu/img/devices_stable_os1_24122514.png",
     "HyperOS 2.0": "https://provider.xiaomi.eu/img/devices_stable_os2_25070816.png",
-    "HyperOS 3.0": "https://provider.xiaomi.eu/img/devices_stable_os3_25121019.png",
+    # "HyperOS 3.0": "https://provider.xiaomi.eu/img/devices_stable_os3_25121019.png",
     }
 
 
@@ -25,6 +25,7 @@ def extract_from_image(url):
                     {"type": "text", "text": (
                         "Extract ONLY the first 3 columns as structured JSON.\n"
                         "Columns: codename, market_names, rom_name.\n"
+                        "Use market_names as key, because it is unique.\n"
                         "If rom_name is empty, fill it with \"TO_BE_FILLED_MANUALLY\"\n"
                         "Output JSON array only—no explanations."
                     )},
