@@ -10,7 +10,7 @@ IMAGE_URLS = {
     # "MIUI 13": "https://provider.xiaomi.eu/img/devices_stable_v13_23040300.png",
     # "MIUI 14": "https://provider.xiaomi.eu/img/devices_stable_v14_24011214.png",
     # "HyperOS 1.0": "https://provider.xiaomi.eu/img/devices_stable_os1_24122514.png",
-    "HyperOS 2.0": "https://provider.xiaomi.eu/img/devices_stable_os2_25070816.png",
+    # "HyperOS 2.0": "https://provider.xiaomi.eu/img/devices_stable_os2_25070816.png",
     # "HyperOS 3.0": "https://provider.xiaomi.eu/img/devices_stable_os3_25121019.png",
     }
 

@@ -13,14 +13,16 @@ links_to_files = {
 
 }
 
-with open("HyperOS 3.0.json", "r", encoding="utf-8") as f:
+file_name = input("Enter OS version file name (e.g., HyperOS 3.0.json): ")
+device_model = input("Enter device market name (e.g., Xiaomi 15): ")
+with open(file_name, "r", encoding="utf-8") as f:
     data = json.load(f)
 
-chosen_model = data["Xiaomi 15"]["rom_name"]
+chosen_model = data[device_model]["rom_name"]
 
 from scraper import scrape_config_by_url as scrape
 
-soup = scrape(links_to_files["HyperOS 3.0.json"])
+soup = scrape(links_to_files[file_name])
 rows = soup.find_all("tr", class_="file")
 
 for row in rows:
