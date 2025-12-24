@@ -13,11 +13,20 @@ links_to_files = {
 
 }
 
+# this will be used from drowpdown menu, so there will be no mistakes
 file_name = input("Enter OS version file name (e.g., HyperOS 3.0.json): ")
+if file_name not in links_to_files:
+    print("Unknown OS version file")
+    sys.exit(1)
+    
 device_model = input("Enter device market name (e.g., Xiaomi 15): ")
 with open(file_name, "r", encoding="utf-8") as f:
     data = json.load(f)
 
+# be sure that the json is not a list, but a dict
+if not isinstance(data, dict):
+    print("JSON file format is incorrect")
+    sys.exit(1)
 chosen_model = data[device_model]["rom_name"]
 
 from scraper import scrape_config_by_url as scrape

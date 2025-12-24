@@ -3,7 +3,11 @@
     "codename": "amethyst",
     "rom_name": "AMETHYST"
   },
-  "REDMI K90 / POCO F8 Pro": {
+  "REDMI K90": {
+    "codename": "annibale",
+    "rom_name": "ANNIBALE"
+  },
+  "POCO F8 Pro": {
     "codename": "annibale",
     "rom_name": "ANNIBALE"
   },
@@ -51,11 +55,19 @@
     "codename": "manet",
     "rom_name": "MANET"
   },
-  "REDMI K80 Pro / POCO F7 Ultra": {
+  "REDMI K80 Pro": {
     "codename": "miro",
     "rom_name": "MIRO"
   },
-  "REDMI K90 Pro Max / POCO F8 Ultra": {
+  "POCO F7 Ultra": {
+    "codename": "miro",
+    "rom_name": "MIRO"
+  },
+  "REDMI K90 Pro Max": {
+    "codename": "myron",
+    "rom_name": "MYRON"
+  },
+  "POCO F8 Ultra": {
     "codename": "myron",
     "rom_name": "MYRON"
   },
@@ -63,7 +75,11 @@
     "codename": "nuwa",
     "rom_name": "NUWA"
   },
-  "REDMI Turbo 4 Pro / POCO F7": {
+  "REDMI Turbo 4 Pro": {
+    "codename": "onyx",
+    "rom_name": "ONYX"
+  },
+  "POCO F7": {
     "codename": "onyx",
     "rom_name": "ONYX"
   },
@@ -83,7 +99,11 @@
     "codename": "shennong",
     "rom_name": "SHENNONG"
   },
-  "Redmi K70 / POCO F6 Pro": {
+  "Redmi K70": {
+    "codename": "vermeer",
+    "rom_name": "VERMEER"
+  },
+  "POCO F6 Pro": {
     "codename": "vermeer",
     "rom_name": "VERMEER"
   },
@@ -91,7 +111,11 @@
     "codename": "xuanyuan",
     "rom_name": "XUANYUAN"
   },
-  "REDMI K80 / POCO F7 Pro": {
+  "REDMI K80": {
+    "codename": "zorn",
+    "rom_name": "ZORN"
+  },
+  "POCO F7 Pro": {
     "codename": "zorn",
     "rom_name": "ZORN"
   }
