@@ -12,6 +12,8 @@ jobs:
         steps:
             - name: Checkout repo
               uses: actions/checkout@v4
+              with:
+                  fetch-depth: 0
 
             - name: Set up Python
               uses: actions/setup-python@v5
@@ -26,12 +28,16 @@ jobs:
               env: 
                 OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
               run: |
-                python devices_by_os_version/read_image.py   
+                python devices_by_os_version/read_image.py
+            
+            - name: Pull latest changes
+              run: |
+                git pull --rebase origin main
                 
             - name: Commit and push if changed
               run: |
                 git config --global user.name "github-actions"
                 git config --global user.email "github-actions@github.com"
                 git add devices_by_os_version/HyperOS\ 3.0.json
-                git diff --cached --quiet || git commit -m "Auto-update HyperOS 3.0.json"
-                git push
+                git diff --cached --quiet || git commit -m "Auto-update HyperOS 3.0.json" || echo "No changes to commit"
+                git push origin main
