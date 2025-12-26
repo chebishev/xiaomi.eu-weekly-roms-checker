@@ -1,0 +1,37 @@
+name: Update HyperOS 3.0 JSON
+
+on:
+    schedule:
+        - cron: "0 3 * * 1"
+    workflow_dispatch:
+
+jobs:
+    update:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout repo
+              uses: actions/checkout@v4
+
+            - name: Set up Python
+              uses: actions/setup-python@v5
+              with:
+                  python-version: "3.11"
+            
+            - name: Install dependencies
+              run: | 
+                pip install -r requirements.txt
+
+            - name: Generate HyperOS 3.0 JSON
+              env: 
+                OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+              run: |
+                python devices_by_os_version/read_image.py   
+                
+            - name: Commit and push if changed
+              run: |
+                git config --global user.name "github-actions"
+                git config --global user.email "github-actions@github.com"
+                git add devices_by_os_version/HyperOS\ 3.0.json
+                git diff --cached --quiet || git commit -m "Auto-update HyperOS 3.0.json"
+                git push

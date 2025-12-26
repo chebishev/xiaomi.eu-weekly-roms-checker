@@ -24,6 +24,8 @@ Send results directly to:
 - your **Telegram channel**
 
 Fully optional—if not configured, results print to console.
+You need TOKEN from https://t.me/Botfather and CHANNEL_NAME.
+(see the env_sample file)
 
 ---
 
@@ -52,6 +54,11 @@ The tool now includes:
 - `telegram_sender.py` *(optional)*  
   Send messages to Telegram (user or channel).
 
+- read_image.py  
+  A small script for extracting Market Name, Rom Name and Code Name from ROM images.
+
+- check_json.py
+  Just checks if the json files work correctly. It will be used in the ![url](https://github.com/chebishev/XiaomiEuRomChecker) Django project.
 ---
 
 ## 🖼 Screenshots
@@ -69,3 +76,9 @@ xiaomi.eu thread parsing (legacy Weekly mode):
 Run folder checker:
 ```bash
 python sourceforge_new_folder_checker.py
+```
+
+Send telegram message:
+```bash
+python send_to_telegram_channel.py
+```
