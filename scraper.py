@@ -1,6 +1,5 @@
 from bs4 import BeautifulSoup
 import requests
-from urllib.parse import urljoin
 
 session = requests.Session()
 cache = {}
