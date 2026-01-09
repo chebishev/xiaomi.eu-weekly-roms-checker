@@ -46,19 +46,19 @@ The tool now includes:
 
 - `xiaomi_eu_new_thread_checker.py`  
   Checks the last stable thread from the xiaomi.eu forum and prepares telegram message with the title, downloads link and changelog.
-  Now, because of the deprecation of weekly roms this function is no longer usable.
+  It is also used to get the newest image with the Market Name, Rom Name and Code Name if the hardcoded link is broken.
 
 - `get_all_folders.py` *(new)*  
   Recursively scans all device folders and builds a full ROM index.
 
-- `telegram_sender.py` *(optional)*  
+- `send_to_telegram_channel.py` *(optional)*  
   Send messages to Telegram (user or channel).
 
-- read_image.py  
-  A small script for extracting Market Name, Rom Name and Code Name from ROM images.
+- ` read_image.py`  
+  A small script for extracting Market Name, Rom Name and Code Name from ROM images using openai.
 
-- check_json.py
-  Just checks if the json files work correctly. It will be used in the ![url](https://github.com/chebishev/XiaomiEuRomChecker) Django project.
+- ` check_json.py`
+  Just checks if the json files work correctly. Its logic is used in the ![url](https://github.com/chebishev/XiaomiEuRomChecker) Django project.
 ---
 
 ## 🖼 Screenshots
@@ -81,4 +81,14 @@ python sourceforge_new_folder_checker.py
 Send telegram message:
 ```bash
 python send_to_telegram_channel.py
+```
+
+Check json files:
+```bash
+cd devices_by_os_version && python check_json.py
+```
+
+Read ROM image(.png from xiaomi.eu latest thread):
+```bash
+cd devices_by_os_version && python read_image.py
 ```
