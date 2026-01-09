@@ -1,6 +1,13 @@
 import json
 from openai import OpenAI
 from dotenv import load_dotenv
+import sys
+import os
+
+parent_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+if parent_dir not in sys.path:
+    sys.path.insert(0, parent_dir)
+import xiaomi_eu_new_thread_checker
 
 load_dotenv()
 client = OpenAI()
@@ -11,7 +18,7 @@ IMAGE_URLS = {
     # "MIUI 14": "https://provider.xiaomi.eu/img/devices_stable_v14_24011214.png",
     # "HyperOS 1.0": "https://provider.xiaomi.eu/img/devices_stable_os1_24122514.png",
     # "HyperOS 2.0": "https://provider.xiaomi.eu/img/devices_stable_os2_25070816.png",
-    "HyperOS 3.0": "https://provider.xiaomi.eu/img/devices_stable_os3_25121019.png",
+    "HyperOS 3.0": "https://provider.xiaomi.eu/img/devices_stable_os3_26010411.png",
 }
 
 
@@ -54,7 +61,11 @@ def extract_from_image(url):
 
 
 for rom_version, url in IMAGE_URLS.items():
-    devices = extract_from_image(url)
+    try:
+        devices = extract_from_image(url)
+    except openai.BadRequestError:
+        url = telegram_message["image_url"]
+        devices = extract_from_image(url)
 
     filename = f"{rom_version}.json"
     with open(filename, "w", encoding="utf-8") as f:
