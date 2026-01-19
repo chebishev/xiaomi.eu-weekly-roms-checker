@@ -23,6 +23,10 @@
     "codename": "creek_p",
     "rom_name": "CREEK"
   },
+  "Xiaomi 12": {
+    "codename": "cupid",
+    "rom_name": "CUPID"
+  },
   "Xiaomi 15": {
     "codename": "dada",
     "rom_name": "DADA"
@@ -55,6 +59,10 @@
     "codename": "manet",
     "rom_name": "MANET"
   },
+  "Xiaomi 12S": {
+    "codename": "mayfly",
+    "rom_name": "MAYFLY"
+  },
   "REDMI K80 Pro": {
     "codename": "miro",
     "rom_name": "MIRO"
@@ -62,6 +70,14 @@
   "POCO F7 Ultra": {
     "codename": "miro",
     "rom_name": "MIRO"
+  },
+  "Redmi K60": {
+    "codename": "mondrian",
+    "rom_name": "MONDRIAN"
+  },
+  "POCO F5 Pro": {
+    "codename": "mondrian",
+    "rom_name": "MONDRIAN"
   },
   "REDMI K90 Pro Max": {
     "codename": "myron",
@@ -87,6 +103,14 @@
     "codename": "pandora",
     "rom_name": "PANDORA"
   },
+  "Redmi Turbo 3": {
+    "codename": "peridot",
+    "rom_name": "PERIDOT"
+  },
+  "POCO F6": {
+    "codename": "peridot",
+    "rom_name": "PERIDOT"
+  },
   "Xiaomi 17 Pro Max": {
     "codename": "popsicle",
     "rom_name": "POPSICLE"
@@ -99,6 +123,18 @@
     "codename": "shennong",
     "rom_name": "SHENNONG"
   },
+  "Redmi K60 Pro": {
+    "codename": "socrates",
+    "rom_name": "SOCRATES"
+  },
+  "Xiaomi 12S Ultra": {
+    "codename": "thor",
+    "rom_name": "THOR"
+  },
+  "Xiaomi 12S Pro": {
+    "codename": "unicorn",
+    "rom_name": "UNICORN"
+  },
   "Redmi K70": {
     "codename": "vermeer",
     "rom_name": "VERMEER"
@@ -110,6 +146,10 @@
   "Xiaomi 15 Ultra": {
     "codename": "xuanyuan",
     "rom_name": "XUANYUAN"
+  },
+  "Xiaomi 12 Pro": {
+    "codename": "zeus",
+    "rom_name": "ZEUS"
   },
   "REDMI K80": {
     "codename": "zorn",
