@@ -29,11 +29,6 @@ jobs:
                 OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
               run: |
                 python devices_by_os_version/read_image.py
-            
-            - name: Pull latest changes
-              run: |
-                git pull --rebase origin main
-                
             - name: Commit and push if changed
               run: |
                 git config --global user.name "github-actions"
