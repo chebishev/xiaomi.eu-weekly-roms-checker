@@ -15,6 +15,10 @@
     "codename": "aurora",
     "rom_name": "AURORA"
   },
+  "Xiaomi 17 Max": {
+    "codename": "byron",
+    "rom_name": "BYRON"
+  },
   "Redmi 15 (4G)": {
     "codename": "creek(_n)",
     "rom_name": "CREEK"
@@ -23,9 +27,29 @@
     "codename": "creek_p",
     "rom_name": "CREEK"
   },
+  "Xiaomi 12": {
+    "codename": "cupid",
+    "rom_name": "CUPID"
+  },
   "Xiaomi 15": {
     "codename": "dada",
     "rom_name": "DADA"
+  },
+  "Redmi K50 Ultra": {
+    "codename": "diting",
+    "rom_name": "DITING"
+  },
+  "Xiaomi 12T Pro": {
+    "codename": "ditingp",
+    "rom_name": "DITING"
+  },
+  "REDMI Note 15 Pro+ 5G": {
+    "codename": "flourite",
+    "rom_name": "FLOURITE"
+  },
+  "POCO M8 Pro 5G": {
+    "codename": "flourite_p",
+    "rom_name": "FLOURITE"
   },
   "Xiaomi 13": {
     "codename": "fuxi",
@@ -51,9 +75,29 @@
     "codename": "ishtar",
     "rom_name": "ISHTAR"
   },
+  "REDMI Note 15 5G": {
+    "codename": "kunzite",
+    "rom_name": "KUNZITE"
+  },
+  "POCO M8 5G": {
+    "codename": "kunzite_p",
+    "rom_name": "KUNZITE"
+  },
   "Redmi K70 Pro": {
     "codename": "manet",
     "rom_name": "MANET"
+  },
+  "Redmi Note 12 Turbo": {
+    "codename": "marble(in)",
+    "rom_name": "MARBLE"
+  },
+  "POCO F5": {
+    "codename": "marble(in)",
+    "rom_name": "MARBLE"
+  },
+  "Xiaomi 12S": {
+    "codename": "mayfly",
+    "rom_name": "MAYFLY"
   },
   "REDMI K80 Pro": {
     "codename": "miro",
@@ -63,6 +107,14 @@
     "codename": "miro",
     "rom_name": "MIRO"
   },
+  "Redmi K60": {
+    "codename": "mondrian",
+    "rom_name": "MONDRIAN"
+  },
+  "POCO F5 Pro": {
+    "codename": "mondrian",
+    "rom_name": "MONDRIAN"
+  },
   "REDMI K90 Pro Max": {
     "codename": "myron",
     "rom_name": "MYRON"
@@ -70,6 +122,10 @@
   "POCO F8 Ultra": {
     "codename": "myron",
     "rom_name": "MYRON"
+  },
+  "Xiaomi 17 Ultra / Xiaomi 17 Ultra by Leica Leitzphone powered by Xiaomi": {
+    "codename": "nezha",
+    "rom_name": "NEZHA"
   },
   "Xiaomi 13 Pro": {
     "codename": "nuwa",
@@ -107,6 +163,30 @@
     "codename": "shennong",
     "rom_name": "SHENNONG"
   },
+  "Redmi K60 Pro": {
+    "codename": "socrates",
+    "rom_name": "SOCRATES"
+  },
+  "Redmi 15 5G": {
+    "codename": "spring",
+    "rom_name": "SPRING"
+  },
+  "REDMI Note 15R": {
+    "codename": "spring",
+    "rom_name": "SPRING"
+  },
+  "POCO M7 Plus 5G": {
+    "codename": "spring_p",
+    "rom_name": "SPRING"
+  },
+  "Xiaomi 12S Ultra": {
+    "codename": "thor",
+    "rom_name": "THOR"
+  },
+  "Xiaomi 12S Pro": {
+    "codename": "unicorn",
+    "rom_name": "UNICORN"
+  },
   "Redmi K70": {
     "codename": "vermeer",
     "rom_name": "VERMEER"
@@ -118,6 +198,14 @@
   "Xiaomi 15 Ultra": {
     "codename": "xuanyuan",
     "rom_name": "XUANYUAN"
+  },
+  "Xiaomi 12 Pro": {
+    "codename": "zeus",
+    "rom_name": "ZEUS"
+  },
+  "Xiaomi 13 Lite": {
+    "codename": "ziyi",
+    "rom_name": "ZIYIG"
   },
   "REDMI K80": {
     "codename": "zorn",
